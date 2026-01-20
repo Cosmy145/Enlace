@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Enlace - WebRTC Homepage</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#c084fc", // Lilac
+                        "primary-hover": "#a855f7", // Slightly deeper lilac/purple
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#0f1115",
+                        "surface-dark": "#1c1f26",
+                        "text-secondary": "#9ca3af",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .animate-fade-in-up {
+                animation: fadeInUp 0.5s ease-out forwards;
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white overflow-hidden">
+<div class="flex h-screen w-full">
+<aside class="hidden md:flex flex-col w-64 h-full bg-[#13161c] border-r border-white/5 shrink-0">
+<div class="p-4 flex flex-col gap-4 h-full">
+<div class="flex gap-3 items-center px-2 py-2">
+<div class="relative size-10 shrink-0">
+<svg class="w-full h-full drop-shadow-[0_0_15px_rgba(192,132,252,0.3)]" fill="none" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+<rect class="fill-primary/10" height="40" rx="10" width="40"></rect>
+<path d="M12 12H18C20.2 12 22 13.8 22 16V16C22 18.2 20.2 20 18 20H12V12Z" stroke="#c084fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<path d="M12 20V28H18" stroke="#c084fc" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<path d="M28 28H22C19.8 28 18 26.2 18 24V24C18 21.8 19.8 20 22 20H28V28Z" stroke="#a855f7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+<path d="M28 20V12H22" stroke="#a855f7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<div class="flex flex-col">
+<h1 class="text-white text-xl font-bold leading-normal tracking-wide">Enlace</h1>
+<p class="text-text-secondary text-xs font-normal">v2.5.0</p>
+</div>
+</div>
+<nav class="flex flex-col gap-2 mt-4">
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl bg-primary/10 border-l-4 border-primary shadow-[0_0_15px_rgba(192,132,252,0.1)]" href="#">
+<span class="material-symbols-outlined text-primary">home</span>
+<p class="text-white text-sm font-medium">Home</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">chat_bubble</span>
+<p class="text-text-secondary group-hover:text-white text-sm font-medium">Chat</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">group</span>
+<p class="text-text-secondary group-hover:text-white text-sm font-medium">Contacts</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">calendar_month</span>
+<p class="text-text-secondary group-hover:text-white text-sm font-medium">Calendar</p>
+</a>
+<a class="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-white/5 transition-colors group" href="#">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-white">settings</span>
+<p class="text-text-secondary group-hover:text-white text-sm font-medium">Settings</p>
+</a>
+</nav>
+<div class="mt-auto mb-4">
+<div class="bg-gradient-to-br from-[#1c1f26] to-[#252a33] rounded-xl p-4 border border-white/5">
+<p class="text-xs text-text-secondary mb-2">You are on the Free Plan</p>
+<button class="w-full py-2 bg-white/5 hover:bg-white/10 text-white text-xs font-bold rounded-lg transition-colors border border-white/5">
+                        Upgrade to Pro
+                    </button>
+</div>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col h-full relative overflow-hidden bg-background-dark">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-white/5 px-6 py-4 bg-[#13161c] z-10 shrink-0">
+<div class="flex items-center gap-4 text-white md:hidden">
+<span class="material-symbols-outlined">menu</span>
+</div>
+<div class="hidden md:flex items-center gap-2">
+<h2 class="text-white text-lg font-bold leading-tight">Homepage</h2>
+</div>
+<div class="flex flex-1 justify-end items-center gap-4 md:gap-6">
+<div class="hidden sm:flex items-center gap-2 bg-surface-dark px-3 py-1.5 rounded-full border border-white/5">
+<div class="size-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(192,132,252,0.6)]"></div>
+<span class="text-xs font-medium text-text-secondary">System Operational</span>
+</div>
+<div class="h-8 w-[1px] bg-white/5 hidden sm:block"></div>
+<div class="flex items-center gap-3">
+<button class="size-10 flex items-center justify-center rounded-full hover:bg-white/5 text-text-secondary hover:text-white transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-primary rounded-full border-2 border-[#13161c]"></span>
+</button>
+<div class="flex items-center gap-3 cursor-pointer group">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-9 border-2 border-transparent group-hover:border-primary transition-all" data-alt="User profile picture of a smiling man" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDEQvcvSOU6NQp35RwATVtM76aMhveM9LgOSPU48_0FzqbdPo3XaAkq0mS2S4Zn0niQB67FXpbDZ8VQ_Y-Fr4AjnEG-LjNOEGlXSYQXfOE2EJhLewWg1MiYmyBQ2tnypYglmBpurkvFfp3Xt89b7wQbmQeGpjWe8Idxq4W8Uqcd3dJSrDqwg8iXQtv0KO-NUVqtdacQVDiytmbBu0CwWvw2QBE6epqz4vL6UVIJBSIRq8zn1Q-32NzPb_GTiwk4KX_JfliQ7MEUbw");'></div>
+<div class="hidden lg:flex flex-col">
+<span class="text-sm font-bold text-white leading-tight">Alex Morgan</span>
+<span class="text-xs text-text-secondary">Pro Member</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<div class="flex-1 overflow-y-auto p-4 md:p-8 lg:p-10 scroll-smooth">
+<div class="max-w-7xl mx-auto flex flex-col gap-8">
+<div class="flex flex-wrap justify-between items-end gap-4 animate-fade-in-up">
+<div class="flex flex-col gap-2">
+<h1 class="text-white text-3xl md:text-4xl font-black leading-tight tracking-tight">
+                            Hello, <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-primary">Alex</span>
+</h1>
+<p class="text-text-secondary text-base font-normal flex items-center gap-2">
+<span class="material-symbols-outlined text-lg text-primary">schedule</span>
+<span>Wednesday, Oct 25 • 10:30 AM</span>
+</p>
+</div>
+<div class="hidden md:block">
+<div class="flex items-center gap-2 text-text-secondary text-sm bg-surface-dark px-3 py-1 rounded-lg border border-white/5">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<span>San Francisco, CA</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-6 lg:gap-8">
+<div class="xl:col-span-2 flex flex-col gap-6">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<button class="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary to-[#7e22ce] p-6 text-left shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all duration-300 hover:-translate-y-1">
+<div class="absolute right-[-20px] top-[-20px] opacity-10 rotate-12 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-[140px]">videocam</span>
+</div>
+<div class="relative z-10 flex flex-col h-full justify-between gap-8">
+<div class="size-14 rounded-2xl bg-white/20 flex items-center justify-center backdrop-blur-sm border border-white/10 shadow-inner">
+<span class="material-symbols-outlined text-white text-3xl">videocam</span>
+</div>
+<div>
+<h3 class="text-2xl font-bold text-white">Start New Meeting</h3>
+<p class="text-purple-100 text-sm mt-1 opacity-90 font-medium">Create an instant meeting and invite others.</p>
+</div>
+</div>
+</button>
+<button class="group relative overflow-hidden rounded-2xl bg-surface-dark p-6 text-left border border-white/5 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1">
+<div class="absolute right-[-20px] top-[-20px] opacity-[0.03] rotate-12 group-hover:scale-110 transition-transform duration-500">
+<span class="material-symbols-outlined text-[140px]">calendar_clock</span>
+</div>
+<div class="relative z-10 flex flex-col h-full justify-between gap-8">
+<div class="size-14 rounded-2xl bg-[#2a2f38] flex items-center justify-center group-hover:bg-primary/20 transition-colors border border-white/5">
+<span class="material-symbols-outlined text-text-secondary group-hover:text-primary text-3xl transition-colors">calendar_today</span>
+</div>
+<div>
+<h3 class="text-2xl font-bold text-white">Schedule Meeting</h3>
+<p class="text-text-secondary text-sm mt-1 group-hover:text-white/80 transition-colors">Plan ahead and send invites to calendar.</p>
+</div>
+</div>
+</button>
+</div>
+<div class="bg-surface-dark rounded-2xl p-2 border border-primary/20 shadow-[0_4px_20px_-4px_rgba(192,132,252,0.15)] hover:border-primary/50 transition-all duration-300">
+<div class="flex flex-col sm:flex-row items-center gap-2">
+<div class="flex items-center justify-center size-12 rounded-xl bg-[#13161c] shrink-0 text-primary ml-1">
+<span class="material-symbols-outlined">keyboard</span>
+</div>
+<input class="flex-1 bg-transparent border-none text-white placeholder-text-secondary focus:ring-0 text-lg h-12 w-full px-4" placeholder="Enter Meeting ID" type="text"/>
+<button class="w-full sm:w-auto px-8 h-12 bg-primary hover:bg-primary-hover text-white rounded-xl font-bold text-base transition-colors flex items-center justify-center gap-2 shadow-lg shadow-primary/25">
+<span class="material-symbols-outlined text-xl">login</span>
+<span>Join Meeting</span>
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-4 mt-4">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">history</span>
+                                    Recent Meetings
+                                </h3>
+<button class="text-primary text-sm font-medium hover:text-primary-hover hover:underline transition-colors">View All</button>
+</div>
+<div class="bg-surface-dark rounded-2xl border border-white/5 overflow-hidden">
+<div class="flex items-center justify-between p-4 border-b border-white/5 hover:bg-white/5 transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20 flex items-center justify-center font-bold text-sm">DS</div>
+<div>
+<p class="text-white font-semibold group-hover:text-primary transition-colors">Daily Standup</p>
+<p class="text-text-secondary text-xs mt-0.5">Yesterday, 10:00 AM • 15 mins</p>
+</div>
+</div>
+<button class="size-8 rounded-full hover:bg-white/10 flex items-center justify-center text-text-secondary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-4 border-b border-white/5 hover:bg-white/5 transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="size-12 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/20 flex items-center justify-center font-bold text-sm">PD</div>
+<div>
+<p class="text-white font-semibold group-hover:text-primary transition-colors">Product Demo Review</p>
+<p class="text-text-secondary text-xs mt-0.5">Oct 23, 2:00 PM • 45 mins</p>
+</div>
+</div>
+<button class="size-8 rounded-full hover:bg-white/10 flex items-center justify-center text-text-secondary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+<div class="flex items-center justify-between p-4 hover:bg-white/5 transition-colors cursor-pointer group">
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat bg-cover rounded-full size-12 ring-2 ring-transparent group-hover:ring-primary/50 transition-all" data-alt="Profile picture of Sarah" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuALkC7_T9dFhIk_MvBWcfq6muvWU2VTOKpXdIc8Vv_CWkaK6naBeVd41PbPYK-Rp7_8S2xi9DlpHBsBWMdwqRRYDe4EvZE6wCmtv-Em1nr7uBP7P6XwZH8BULDsTYtWaZMd2kuusqADpCNN-TJWuA1WKrkgJztLoUf3Bmf9AN8brt4P221kayxmDR1PF7EYmHHJlZ4-uxNMAREE-Q_XkPaZ7jpc_PFLkHn0macnwzgMDFg8f5fHg5w4nJ0m7DIRFWNkG8SP-jleJg");'></div>
+<div>
+<p class="text-white font-semibold group-hover:text-primary transition-colors">1:1 with Sarah</p>
+<p class="text-text-secondary text-xs mt-0.5">Oct 21, 11:30 AM • 30 mins</p>
+</div>
+</div>
+<button class="size-8 rounded-full hover:bg-white/10 flex items-center justify-center text-text-secondary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="xl:col-span-1 h-full">
+<div class="flex flex-col h-full bg-surface-dark rounded-2xl border border-white/5 overflow-hidden">
+<div class="p-5 border-b border-white/5 flex items-center justify-between bg-[#1f2329]">
+<h3 class="text-lg font-bold text-white">Upcoming Meetings</h3>
+<button class="p-2 hover:bg-white/10 rounded-lg text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">calendar_month</span>
+</button>
+</div>
+<div class="flex-1 overflow-y-auto p-4 flex flex-col gap-4">
+<div class="flex items-center gap-2">
+<div class="h-px bg-white/10 flex-1"></div>
+<p class="text-xs font-bold text-text-secondary uppercase tracking-wider">Today</p>
+<div class="h-px bg-white/10 flex-1"></div>
+</div>
+<div class="relative bg-[#13161c] rounded-xl p-4 border border-primary/40 shadow-[0_0_20px_rgba(192,132,252,0.1)] flex flex-col gap-3 group">
+<div class="absolute top-4 right-4 flex items-center gap-1">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-primary"></span>
+</span>
+<span class="text-[10px] font-bold text-primary uppercase ml-1">Now</span>
+</div>
+<div class="flex items-start gap-3">
+<div class="flex flex-col items-center justify-center bg-surface-dark rounded-lg p-2 min-w-[50px] border border-white/5 group-hover:border-primary/30 transition-colors">
+<span class="text-xs text-text-secondary">10:30</span>
+<span class="text-xs font-bold text-white">AM</span>
+</div>
+<div>
+<h4 class="text-white font-bold leading-tight group-hover:text-primary transition-colors">Design System Sync</h4>
+<p class="text-text-secondary text-xs mt-1">Design Team • Enlace App</p>
+</div>
+</div>
+<div class="flex -space-x-2 overflow-hidden py-2 pl-1">
+<img alt="Team member" class="inline-block h-7 w-7 rounded-full ring-2 ring-[#13161c]" data-alt="Portrait of a female team member" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgQgHy6tiMuYau4hVbMS61-z-0q1I-MQitfK5ss8-kaltnnfY1-OTHgYlU1le3ssPaC9lVFMj5-wYDIvvHr78Vxg1ZhfWJKplmDlSHD6sgj5LhJsFR2z0eAW0ZtMFppWHXIYlvba11fDU5X-_Wp4WVKZjjF3X1m4KRQmuqWQEFwaIEVwTDJTwCnC_tSe2NV29EPvAZWUnf3OGWHnSiyAw_RrACEl4xn9_boYbkvEaxHyDkffsQqnfm3Uvyygg-w-AxXeCeFzX46A"/>
+<img alt="Team member" class="inline-block h-7 w-7 rounded-full ring-2 ring-[#13161c]" data-alt="Portrait of a male team member" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAeXyKrlbT5mqQsH2vCsck5O2HFwC2ozCrPxgRnfnYMfsaAQsnwRvVeYLNRZP1eja3AoUYPZJ9t1Pxr49Gvccri3uMDPv8bMPZNQ1vPv6P7I478F8q9w6PiQvVtiyiEOUiGcZRch6AJeUoM3JoJqTxrWeypSOpfvupAYsImOpINI8vbWe_v_S_fVqdMGj-MRw4U1dxvA6JGUpUtjWix6CZFZhgjgti217_DRHpF4gJ6BQZrEXbbwXXia4Mm6SXLHA871ijoEcE08Q"/>
+<div class="flex items-center justify-center h-7 w-7 rounded-full ring-2 ring-[#13161c] bg-surface-dark border border-white/10 text-[10px] text-white font-medium">+3</div>
+</div>
+<button class="mt-1 w-full py-2.5 bg-primary hover:bg-primary-hover text-white text-sm font-bold rounded-lg transition-colors flex items-center justify-center gap-2 shadow-lg shadow-primary/20">
+<span class="material-symbols-outlined text-lg">videocam</span>
+                                        Join Now
+                                    </button>
+</div>
+<div class="bg-[#13161c] rounded-xl p-4 border border-white/5 flex flex-col gap-3 hover:bg-[#1a1d24] transition-colors group cursor-pointer">
+<div class="flex items-start gap-3">
+<div class="flex flex-col items-center justify-center bg-surface-dark rounded-lg p-2 min-w-[50px] border border-white/5">
+<span class="text-xs text-text-secondary">02:00</span>
+<span class="text-xs font-bold text-white">PM</span>
+</div>
+<div>
+<h4 class="text-white font-bold leading-tight group-hover:text-primary transition-colors">Client Review: Alpha</h4>
+<p class="text-text-secondary text-xs mt-1">External • Zoom Bridge</p>
+</div>
+</div>
+<div class="flex items-center justify-between mt-1">
+<div class="flex -space-x-2 overflow-hidden pl-1">
+<img alt="Client" class="inline-block h-6 w-6 rounded-full ring-2 ring-[#13161c]" data-alt="Portrait of a client" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7so-0PT9QBzLxHugV37NCVr77GMEWpy_t5TfY6yJsg9dyUo0XsjXmP-fDJa6FERkA1DyXDo7OQLhQ2_jboP9AlOKFOdkG6a49onDFE0F7eHvGAQWOjlbGv7z8_f9zmcS0_977f7HN3EH2BBMBo-l9uysqwfyeyrZRxVV2dK7sPRbuyWu4MBivfZ5fH4kxMv6tVXqP9SxU4kR3IP5dQjm-OQJR04jf5jND51osnQcVT89Tjg0xX_f2RVgBq37qO21jBKmGCiOEQg"/>
+</div>
+<button class="text-xs text-primary font-bold hover:underline">Details</button>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-2">
+<div class="h-px bg-white/10 flex-1"></div>
+<p class="text-xs font-bold text-text-secondary uppercase tracking-wider">Tomorrow</p>
+<div class="h-px bg-white/10 flex-1"></div>
+</div>
+<div class="bg-[#13161c] rounded-xl p-4 border border-white/5 flex flex-col gap-3 hover:bg-[#1a1d24] transition-colors group cursor-pointer">
+<div class="flex items-start gap-3">
+<div class="flex flex-col items-center justify-center bg-surface-dark rounded-lg p-2 min-w-[50px] border border-white/5">
+<span class="text-xs text-text-secondary">09:00</span>
+<span class="text-xs font-bold text-white">AM</span>
+</div>
+<div>
+<h4 class="text-white font-bold leading-tight group-hover:text-primary transition-colors">Quarterly All-Hands</h4>
+<p class="text-text-secondary text-xs mt-1">Company Wide</p>
+</div>
+</div>
+</div>
+<div class="mt-auto pt-8 flex flex-col items-center justify-center text-center pb-4 opacity-50">
+<div class="bg-white/5 p-3 rounded-full mb-3">
+<span class="material-symbols-outlined text-2xl text-text-secondary">check</span>
+</div>
+<p class="text-xs text-text-secondary">You're all caught up!</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

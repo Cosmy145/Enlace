@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-brand: #7a2eef;
+  --color-brand-hover: #670378ff;
+}
+
+
+@layer base {
+
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: var(--font-lato), sans-serif;
+  }
+
+  body {
+    background: linear-gradient(135deg, #8229dc 0%, #2d1b69 50%, #1a0f3d 100%);
+  }
+}

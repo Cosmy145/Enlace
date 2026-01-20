@@ -1,0 +1,44 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "This is the backend for my personal project: Enlace",
+  "license": "ISC",
+  "author": "Shivansh Kavatra",
+  "type": "module",
+  "main": "src/app.tsx",
+  "scripts": {
+    "dev": "tsx watch src/app.tsx",
+    "start": "tsx src/app.tsx",
+    "build": "tsc",
+    "prod": "node dist/app.js"
+  },
+  "dependencies": {
+    "@types/express-session": "^1.18.2",
+    "bcrypt": "^6.0.0",
+    "cloudinary": "^1.41.3",
+    "connect-mongo": "^6.0.0",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "express-session": "^1.18.2",
+    "http-status": "^2.1.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongodb": "^7.0.0",
+    "mongoose": "^9.0.2",
+    "nodemailer": "^7.0.12",
+    "socket.io": "^4.8.3",
+    "typescript": "^5.9.3",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/cookie-parser": "^1.4.10",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^2.0.0",
+    "@types/node": "^25.0.3",
+    "@types/nodemailer": "^7.0.5",
+    "tsx": "^4.21.0"
+  }
+}
